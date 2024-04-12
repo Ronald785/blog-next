@@ -1,6 +1,22 @@
+import { AllPosts } from "@/domain/posts/posts";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 
-export default function Home() {
+const getPosts = async (): Promise<AllPosts> => {
+    const response = await fetch(
+        "https://hidden-plains-04614-9d8e1734463e.herokuapp.com/api/posts?populate=*",
+    );
+    const posts = await response.json();
+    return posts;
+};
+
+getPosts();
+
+export type HomeProps = {
+    posts: AllPosts;
+};
+
+export default function Home({ posts }: HomeProps) {
     return (
         <>
             <Head>
@@ -17,7 +33,18 @@ export default function Home() {
             </Head>
             <main>
                 <h1>Hello World</h1>
+                {posts.data.map((post) => (
+                    <p key={post.id}>{post.attributes.title}</p>
+                ))}
             </main>
         </>
     );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+    const posts = await getPosts();
+
+    return {
+        props: { posts },
+    };
+};
