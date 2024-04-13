@@ -1,16 +1,8 @@
+import HomePage from "@/container/HomePage";
+import getAllPosts from "@/data/posts/get-all-posts";
 import { AllPosts } from "@/domain/posts/posts";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-
-const getPosts = async (): Promise<AllPosts> => {
-    const response = await fetch(
-        "https://hidden-plains-04614-9d8e1734463e.herokuapp.com/api/posts?populate=*",
-    );
-    const posts = await response.json();
-    return posts;
-};
-
-getPosts();
 
 export type HomeProps = {
     posts: AllPosts;
@@ -32,17 +24,14 @@ export default function Home({ posts }: HomeProps) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <h1>Hello World</h1>
-                {posts.data.map((post) => (
-                    <p key={post.id}>{post.attributes.title}</p>
-                ))}
+                <HomePage posts={posts} />
             </main>
         </>
     );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const posts = await getPosts();
+    const posts = await getAllPosts();
 
     return {
         props: { posts },
