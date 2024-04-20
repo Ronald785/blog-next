@@ -1,6 +1,6 @@
-import Container from "@/styles/container";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Container from "./styles";
 
 export default function Dynamic() {
     const router = useRouter();
