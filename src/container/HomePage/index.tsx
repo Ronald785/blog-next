@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import { MainContainer } from "@/components/MainContainer";
 import { AllPosts } from "@/domain/posts/posts";
-import { Container } from "./styles";
+import { BodyContainer, Container } from "./styles";
 import { PostCard } from "@/components/PostCard";
 import { Footer } from "@/components/Footer";
 
@@ -12,7 +12,7 @@ export type HomePageProps = {
 export default function HomePage({ posts }: HomePageProps) {
     console.log("posts: ", posts);
     return (
-        <>
+        <BodyContainer>
             <Header />
             <MainContainer>
                 <Container>
@@ -30,6 +30,6 @@ export default function HomePage({ posts }: HomePageProps) {
                 </Container>
             </MainContainer>
             <Footer />
-        </>
+        </BodyContainer>
     );
 }

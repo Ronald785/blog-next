@@ -6,6 +6,7 @@ export const Container = styled.main`
         padding: ${theme.spacings.medium};
     `}
     max-width: 96rem;
+    width: 100%;
     margin: 0 auto;
 `;
 

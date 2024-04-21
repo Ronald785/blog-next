@@ -7,8 +7,5 @@ export const Container = styled.footer`
         padding: ${theme.spacings.medium};
         font-size: ${theme.font.sizes.large};
     `}
-    bottom: 0;
     text-align: center;
-    position: absolute;
-    width: 100%;
 `;
