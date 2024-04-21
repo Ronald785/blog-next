@@ -23,9 +23,7 @@ export default function Home({ posts }: HomeProps) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main>
-                <HomePage posts={posts} />
-            </main>
+            <HomePage posts={posts} />
         </>
     );
 }
