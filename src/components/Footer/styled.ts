@@ -9,4 +9,6 @@ export const Container = styled.footer`
     `}
     bottom: 0;
     text-align: center;
+    position: absolute;
+    width: 100%;
 `;
