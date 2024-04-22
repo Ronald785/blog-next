@@ -27,4 +27,13 @@ export const GlobalStyle = createGlobalStyle`
             opacity: .6;
         }
     }
+
+    h1,h2,h3 {
+        margin: ${({ theme }) => theme.spacings.small} 0;
+    }
+
+    ol, ul {
+        margin: ${({ theme }) => theme.spacings.small};
+        margin-left: ${({ theme }) => theme.spacings.large};
+    }
 `;
