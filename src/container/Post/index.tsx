@@ -5,23 +5,33 @@ import { MainContainer } from "@/components/MainContainer";
 import { Footer } from "@/components/Footer";
 import { Heading } from "@/components/Heading";
 import { PostImg } from "./styled";
+import { PostDetails } from "@/components/PostDetails";
 
 export type PostProps = {
     post: PostAttributes;
 };
 
 export default function Post({ post }: PostProps) {
+    const title = post.title;
+    const content = post.content;
+    const date = post.createdAt;
+    const imgURL = post.cover.data.attributes.formats.large.url;
+    const category = post.category.data.attributes.name;
+    const author = post.author.data.attributes.name;
+
     return (
         <>
             <BodyContainer>
                 <Header />
                 <MainContainer>
-                    <Heading>{post.title}</Heading>
-                    <PostImg
-                        src={post.cover.data.attributes.formats.large.url}
-                        alt={post.title}
+                    <Heading>{title}</Heading>
+                    <PostImg src={imgURL} alt={title} />
+                    <PostDetails
+                        date={date}
+                        category={category}
+                        author={author}
                     />
-                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                    <div dangerouslySetInnerHTML={{ __html: content }} />
                 </MainContainer>
                 <Footer />
             </BodyContainer>
