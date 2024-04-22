@@ -1,4 +1,9 @@
-import { Container, PostCardCover, PostCardHeading } from "./styled";
+import {
+    Container,
+    PostCardCover,
+    PostCardHeading,
+    PostCardImg,
+} from "./styled";
 import Link from "next/link";
 
 export type PostCardProps = {
@@ -12,7 +17,7 @@ export const PostCard = ({ title, slug, cover }: PostCardProps) => {
         <Container>
             <Link href="/post/[slug]" as={`/post/${slug}`}>
                 <PostCardCover>
-                    <img src={cover} alt={title} />
+                    <PostCardImg src={cover} alt={title} />
                 </PostCardCover>
                 <PostCardHeading>{title}</PostCardHeading>
             </Link>

@@ -20,6 +20,11 @@ export const PostCardCover = styled.div`
     }
 `;
 
+export const PostCardImg = styled.img`
+    width: 100%;
+    height: 100%;
+`;
+
 export const PostCardHeading = styled.h2`
     ${({ theme }) => css`
         font-size: ${theme.font.sizes.medium};
