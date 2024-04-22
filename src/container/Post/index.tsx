@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Heading } from "@/components/Heading";
 import { PostImg } from "./styled";
 import { PostDetails } from "@/components/PostDetails";
+import { PostContent } from "@/components/PostContent";
 
 export type PostProps = {
     post: PostAttributes;
@@ -31,7 +32,7 @@ export default function Post({ post }: PostProps) {
                         category={category}
                         author={author}
                     />
-                    <div dangerouslySetInnerHTML={{ __html: content }} />
+                    <PostContent content={content} />
                 </MainContainer>
                 <Footer />
             </BodyContainer>
