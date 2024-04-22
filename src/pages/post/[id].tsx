@@ -1,3 +1,4 @@
+import Post from "@/container/Post";
 import getAllPosts from "@/data/posts/get-all-posts";
 import getPost from "@/data/posts/get-post";
 import { PostAttributes } from "@/domain/posts/posts";
@@ -8,11 +9,7 @@ export type DynamicPostProps = {
 };
 
 export default function DynamicPost({ post }: DynamicPostProps) {
-    return (
-        <>
-            <p dangerouslySetInnerHTML={{ __html: post.content }}></p>
-        </>
-    );
+    return <Post post={post} />;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
