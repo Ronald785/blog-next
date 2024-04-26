@@ -7,7 +7,7 @@ export default async function getPost(
     id: string | string[] | undefined,
 ): Promise<PostAttributes> {
     const idString = Array.isArray(id) ? id[0] : id;
-    const url = `${POST_URL}&filters[id][$eq]=${idString}`;
+    const url = `${POST_URL}&filters[slug][$eq]=${idString}`;
     const posts = await fetchJson<AllPosts>(url);
     const post = posts.data[0].attributes;
     const content = await markdownToHtml(post.content);

@@ -18,9 +18,9 @@ export default function HomePage({ posts }: HomePageProps) {
                 <Container>
                     {posts.data.map((post) => (
                         <PostCard
-                            key={post.id}
+                            key={post.attributes.slug}
                             title={post.attributes.title}
-                            slug={String(post.id)}
+                            slug={post.attributes.slug}
                             cover={
                                 post.attributes.cover.data.attributes.formats
                                     .small.url
