@@ -7,6 +7,7 @@ import { Heading } from "@/components/Heading";
 import { PostImg } from "./styled";
 import { PostDetails } from "@/components/PostDetails";
 import { PostContent } from "@/components/PostContent";
+import { Comments } from "@/components/Comments";
 
 export type PostProps = {
     post: PostAttributes;
@@ -14,6 +15,7 @@ export type PostProps = {
 
 export default function Post({ post }: PostProps) {
     const title = post.title;
+    const slug = post.slug;
     const content = post.content;
     const date = post.createdAt;
     const imgURL = post.cover.data.attributes.formats.large.url;
@@ -33,6 +35,7 @@ export default function Post({ post }: PostProps) {
                         author={author}
                     />
                     <PostContent content={content} />
+                    <Comments title={title} slug={slug} />
                 </MainContainer>
                 <Footer />
             </BodyContainer>
