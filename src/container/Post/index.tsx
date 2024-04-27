@@ -8,6 +8,9 @@ import { PostImg } from "./styled";
 import { PostDetails } from "@/components/PostDetails";
 import { PostContent } from "@/components/PostContent";
 import { Comments } from "@/components/Comments";
+import { SITE_NAME } from "@/config/app-config";
+import Head from "next/head";
+import { removeHtml } from "@/utils/remove-html";
 
 export type PostProps = {
     post: PostAttributes;
@@ -24,6 +27,16 @@ export default function Post({ post }: PostProps) {
 
     return (
         <>
+            <Head>
+                <title>
+                    {title} - {SITE_NAME}
+                </title>
+                <meta
+                    name="description"
+                    content={removeHtml(content).slice(0, 150)}
+                />
+                <link rel="icon" href="/blog.svg" />
+            </Head>
             <BodyContainer>
                 <Header />
                 <MainContainer>
