@@ -9,6 +9,9 @@ export default async function getPost(
     const idString = Array.isArray(id) ? id[0] : id;
     const url = `${POST_URL}&filters[slug][$eq]=${idString}`;
     const posts = await fetchJson<AllPosts>(url);
+
+    if (!posts.data.length) return posts.data[0].attributes;
+
     const post = posts.data[0].attributes;
     const content = await markdownToHtml(post.content);
     const finalPost = { ...post, content };
